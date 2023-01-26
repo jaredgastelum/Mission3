@@ -5,12 +5,9 @@ namespace TicTacToe
 {
     class Supporting
     {
-    
+        //method to print board
         public static void BoardPrint(char[,] board)
         {
-            //char[,] board = new char[3, 3];
-            //char pos = '1';
-
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
@@ -30,7 +27,7 @@ namespace TicTacToe
 
         }
 
-
+        //method for checking winner
         public static bool Winner(char[,] board)
         {
             // Check for a winner by checking rows, columns, and diagonals

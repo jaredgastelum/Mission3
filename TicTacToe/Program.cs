@@ -32,22 +32,18 @@ namespace TicTacToe
                 }
             }
 
+            Console.WriteLine("\n");
+
 
             // check for winner in while loop
-
-            Console.WriteLine("\n");
-            
-
-            pos = '1';
             int turn = 0;
-            //for (int turn = 0; turn < 9; turn++)
             while (Supporting.Winner(board) == false)
             {
                 
                 // Ask for player's choice
                 Console.WriteLine("\nPlayer {0}, please enter your choice: ", (turn % 2) + 1);
                 int ans = Convert.ToInt32(Console.ReadLine());
-                        
+                // update array    
                 switch (ans)
                 {
                     case 1:
@@ -78,9 +74,17 @@ namespace TicTacToe
                         board[2, 2] = (turn % 2 == 0) ? 'X' : 'O';
                         break;
                 }
+                //reprint board
                 Supporting.BoardPrint(board);
-                turn++;
+                // check for winner
                 Supporting.Winner(board);
+                //print winner
+                if (Supporting.Winner(board))
+                {
+                    Console.WriteLine("\nPlayer {0} wins!", (turn % 2) + 1);
+                    break;
+                }
+                turn++;
             }
         }
     }
