@@ -8,14 +8,15 @@ namespace TicTacToe
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to our tic tac toe game!" + "\n");
-
+            //create array
             char[,] board = new char[3, 3];
             char pos = '1';
-
+            //print original board
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
                 {
+                    //autofill spots with numbers 1-9
                     board[i, j] = pos;
                     pos++;
 
@@ -84,6 +85,13 @@ namespace TicTacToe
                     Console.WriteLine("\nPlayer {0} wins!", (turn % 2) + 1);
                     break;
                 }
+                //print tie
+                if (turn == 8)
+                {
+                    Console.WriteLine("\nIt's a tie.");
+                    return;
+                }
+                //increment turn
                 turn++;
             }
         }
